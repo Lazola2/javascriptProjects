@@ -7,12 +7,12 @@ let deleteBtn = document.querySelector(".btn-delete");
 let btnZero = document.querySelector(".zero");
 
 // assume that the is no text in the screen
-let noText = false;
+let noText = true;
 
 // processing for all the buttons 1 to 9 including the operators ( - , + , / , *)
 buttons.forEach(button => {
     button.addEventListener('click', () => {
-        if (!noText) { 
+        if (noText) { 
             screen.value += button.value; 
             return;
         } 
