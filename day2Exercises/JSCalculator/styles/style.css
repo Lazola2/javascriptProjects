@@ -33,6 +33,15 @@ body{
     color: #fff;
 }
 
+.btn {
+    border: 1px solid rgba(0, 171, 251, 0.4) !important;
+}
+
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.913);
+}
+
 .buttons, .equal, .btn-delete, .clear {
     background-color: rgba(255, 255, 255, 0.703);
     border: none;

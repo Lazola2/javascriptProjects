@@ -6,16 +6,15 @@ let clearBtn = document.querySelector(".clear");
 let deleteBtn = document.querySelector(".btn-delete");
 let btnZero = document.querySelector(".zero");
 
+// processing for all the buttons 1 to 9 including the operators ( - , + , / , *)
 // assume that the is no text in the screen
 let noText = true;
-
-// processing for all the buttons 1 to 9 including the operators ( - , + , / , *)
 buttons.forEach(button => {
     button.addEventListener('click', () => {
-        if (noText) { 
-            screen.value += button.value; 
+        if (noText) {
+            screen.value += button.value;
             return;
-        } 
+        }
         screen.value = button.value;
         noText = !noText;
     });
@@ -23,8 +22,17 @@ buttons.forEach(button => {
 
 // equal button
 equal.addEventListener('click', () => {
-    screen.value = eval(screen.value);
-    noText = !noText;
+    try {
+        eval(screen.value).toString().includes('.') ?
+            screen.value = eval(screen.value).toFixed(2) :
+            screen.value = eval(screen.value);
+        noText = !noText;
+    }
+    catch (e) {
+        alert("Invalid value entered!");
+        console.log(e);
+        screen.value = "";
+    }
 });
 
 // clear button
